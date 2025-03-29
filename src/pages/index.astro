@@ -11,29 +11,20 @@ import FeaturedArticles from "../components/home/FeaturedArticles.astro";
 <Layout>
   <Fragment slot="head">
     <title>{GLOBAL.username} • {GLOBAL.shortDescription}</title>
-    <meta
-      name="description"
-      content={GLOBAL.longDescription}
-    />
+    <meta name="description" content={GLOBAL.longDescription} />
     <meta
       property="og:title"
       content={`${GLOBAL.username} • ${GLOBAL.shortDescription}`}
     />
-    <meta
-      property="og:description"
-      content={GLOBAL.longDescription}
-    />
-    <meta property="og:image" content={`${GLOBAL.rootUrl}/zaggonaut.png`} /> 
+    <meta property="og:description" content={GLOBAL.longDescription} />
+    <meta property="og:image" content={`${GLOBAL.rootUrl}/zaggonaut.png`} />
     <meta property="og:url" content={GLOBAL.rootUrl} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
       content={`${GLOBAL.username} • ${GLOBAL.shortDescription}`}
     />
-    <meta
-      name="twitter:description"
-      content={GLOBAL.longDescription}
-    />
+    <meta name="twitter:description" content={GLOBAL.longDescription} />
     <meta name="twitter:image" content={`${GLOBAL.rootUrl}/zaggonaut.png`} />
     <meta http-equiv="content-language" content="en" />
     <meta name="language" content="English" />
@@ -49,3 +40,7 @@ import FeaturedArticles from "../components/home/FeaturedArticles.astro";
     <FeaturedArticles featuredArticles={featuredArticles} />
   </Section>
 </Layout>
+
+<!-- TODO can have my "Latest feed also show when i have pushed to a repo, 
+ or deployed. Probably do two feeds side by side as the pushed/deployed 
+ would be noisy" -->

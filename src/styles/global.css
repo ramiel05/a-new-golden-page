@@ -33,10 +33,10 @@
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
   --font-display: "press-start-2p", ui-monospace, monospace;
   --font-serif: "Literata Variable", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --color-zag-dark: var(--color-neutral-900);
-  --color-zag-light: var(--color-neutral-100);
-  --color-zag-dark-muted: var(--color-neutral-600);
-  --color-zag-light-muted: var(--color-neutral-400);
+  --color-zag-dark: var(--color-sky-900);
+  --color-zag-light: var(--color-sky-100);
+  --color-zag-dark-muted: var(--color-sky-600);
+  --color-zag-light-muted: var(--color-sky-400);
   --color-zag-accent-light: var(--color-emerald-400);
   --color-zag-accent-light-muted: var(--color-emerald-300);
   --color-zag-accent-dark: var(--color-emerald-600);
