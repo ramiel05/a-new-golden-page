@@ -6,17 +6,17 @@ export const GLOBAL = {
   rootUrl: "https://zaggonaut.dev",
   shortDescription: "Retro-Inspired Theme &<br /> Built for Astro",
   longDescription: "Zaggonaut is a retro-inspired theme for Astro, built using TypeScript, TailwindCSS, and Astro.",
-  
+
   // Social media links
   githubProfile: "https://github.com/RATIU5/zaggonaut",
   twitterProfile: "https://twitter.com/",
   linkedinProfile: "https://www.linkedin.com/",
-  
+
   // Common text names used throughout the site
   articlesName: "Articles",
   projectsName: "Projects",
   viewAll: "View All",
-  
+
   // Common descriptions used throughout the site
   noArticles: "No featured articles yet.",
   noProjects: "No featured projects yet.",
@@ -39,5 +39,5 @@ export const GLOBAL = {
     home: "/",
     projects: "/projects",
     blog: "/blog",
-  }
+  },
 };

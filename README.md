@@ -77,7 +77,7 @@ export const GLOBAL = {
     home: "/",
     projects: "/projects",
     blog: "/blog",
-  }
+  },
 };
 ```
 
