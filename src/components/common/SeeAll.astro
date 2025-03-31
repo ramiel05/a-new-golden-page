@@ -1,0 +1,14 @@
+---
+import Anchor from "./Anchor.astro";
+
+export type Props = {
+  url: string;
+  pageName: string;
+};
+
+const { url, pageName } = Astro.props;
+---
+
+<div class="flex justify-end items-center w-full">
+  <Anchor url={url} class="text-base">{`See ${pageName}`}</Anchor>
+</div>

@@ -1,0 +1,17 @@
+---
+import SeeAll from "./SeeAll.astro";
+
+export type Props = {
+  url: string;
+  pageName: string;
+};
+
+const { url, pageName } = Astro.props;
+---
+
+<div class="space-y-10">
+  <ul class="space-y-10">
+    <slot />
+  </ul>
+  <SeeAll url={url} pageName={pageName} />
+</div>
