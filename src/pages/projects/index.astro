@@ -8,25 +8,16 @@ import { GLOBAL } from "../../lib/variables";
 
 <Layout>
   <Fragment slot="head">
-    <title>{GLOBAL.projectTitle} • {GLOBAL.username}</title>
-    <meta
-      name="description"
-      content={GLOBAL.projectLongDescription}
-    />
-    <meta property="og:title" content={`${GLOBAL.projectTitle} • ${GLOBAL.username}`} />
-    <meta
-      property="og:description"
-      content={GLOBAL.projectShortDescription}
-    />
-    <meta property="og:image" content={`${GLOBAL.rootUrl}/${GLOBAL.profileImage}`} />
+    <title>{GLOBAL.projectTitle} • {GLOBAL.alias}</title>
+    <meta name="description" content={GLOBAL.projectLongDescription} />
+    <meta property="og:title" content={`${GLOBAL.projectTitle} • ${GLOBAL.alias}`} />
+    <meta property="og:description" content={GLOBAL.projectShortDescription} />
+    <meta property="og:image" content={`${GLOBAL.rootUrl}/${GLOBAL.avatar}`} />
     <meta property="og:url" content={`${GLOBAL.rootUrl}/projects`} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={`${GLOBAL.projectTitle} • ${GLOBAL.username}`} />
-    <meta
-      name="twitter:description"
-      content={GLOBAL.projectShortDescription}
-    />
-    <meta name="twitter:image" content={`${GLOBAL.rootUrl}/${GLOBAL.profileImage}`} />
+    <meta name="twitter:title" content={`${GLOBAL.projectTitle} • ${GLOBAL.alias}`} />
+    <meta name="twitter:description" content={GLOBAL.projectShortDescription} />
+    <meta name="twitter:image" content={`${GLOBAL.rootUrl}/${GLOBAL.avatar}`} />
     <meta http-equiv="content-language" content="en" />
     <meta name="language" content="English" />
     <link rel="canonical" href={`${GLOBAL.rootUrl}/projects`} />

@@ -8,7 +8,6 @@ import Section from "../components/common/Section.astro";
 import Anchor from "../components/common/Anchor.astro";
 import { GLOBAL } from "../lib/variables";
 
-
 type Props = MarkdownLayoutProps<ProjectFrontmatter>;
 
 const { frontmatter } = Astro.props;
@@ -18,16 +17,16 @@ const sourceUrl = generateSourceUrl(frontmatter.filename, "projects");
 
 <Layout>
   <Fragment slot="head">
-    <title>{frontmatter.title} • {GLOBAL.username}</title>
+    <title>{frontmatter.title} • {GLOBAL.alias}</title>
     <meta name="description" content={frontmatter.description} />
-    <meta property="og:title" content={`${frontmatter.title} • ${GLOBAL.username}`} />
+    <meta property="og:title" content={`${frontmatter.title} • ${GLOBAL.alias}`} />
     <meta property="og:description" content={shortDescription} />
-    <meta property="og:image" content={`${GLOBAL.rootUrl}/${GLOBAL.profileImage}`} />
+    <meta property="og:image" content={`${GLOBAL.rootUrl}/${GLOBAL.avatar}`} />
     <meta property="og:url" content={frontmatter.url} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={`${frontmatter.title} • ${GLOBAL.username}`} />
+    <meta name="twitter:title" content={`${frontmatter.title} • ${GLOBAL.alias}`} />
     <meta name="twitter:description" content={shortDescription} />
-    <meta name="twitter:image" content={`${GLOBAL.rootUrl}/${GLOBAL.profileImage}`} />
+    <meta name="twitter:image" content={`${GLOBAL.rootUrl}/${GLOBAL.avatar}`} />
     <meta http-equiv="content-language" content="en" />
     <meta name="language" content="English" />
     <link rel="canonical" href={sourceUrl} />
@@ -41,9 +40,7 @@ const sourceUrl = generateSourceUrl(frontmatter.filename, "projects");
         {
           frontmatter.tags
             ? frontmatter.tags.map((tag) => (
-                <span class="-zag-text -zag-bg zag-transition font-semibold py-1 px-2">
-                  {tag}
-                </span>
+                <span class="-zag-text -zag-bg zag-transition font-semibold py-1 px-2">{tag}</span>
               ))
             : null
         }
