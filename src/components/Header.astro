@@ -2,7 +2,7 @@
 import { GLOBAL } from "../lib/variables";
 import Anchor from "./common/Anchor.astro";
 import ThemeToggle from "./ThemeToggle.astro";
-import { navLinks } from "../lib/nav";
+import { pages } from "../lib/pages";
 ---
 
 <header class="zag-bg zag-border-b zag-transition sticky top-0 w-full z-10">
@@ -23,7 +23,7 @@ import { navLinks } from "../lib/nav";
     class="zag-bg zag-border-b zag-transition fixed sm:relative inset-x-0 top-0 h-auto sm:px-4 flex justify-between flex-col gap-8 py-4 text-xl sm:flex-row max-w-2xl mx-auto sm:pt-4 sm:border-none"
   >
     <div class="flex flex-col font-mono font-medium gap-4 sm:flex-row px-4 sm:px-0 mt-16 sm:mt-0">
-      {navLinks.map((navLink) => <Anchor url={navLink.url}>{navLink.name}</Anchor>)}
+      {pages.map((page) => <Anchor url={"/" + (page.contentType ?? "")}>{page.name}</Anchor>)}
     </div>
     <div class="flex gap-4 justify-between px-4 sm:px-0">
       {

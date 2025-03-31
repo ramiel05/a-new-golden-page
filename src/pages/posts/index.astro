@@ -1,12 +1,12 @@
 ---
 import { GLOBAL } from "../../lib/variables";
-import Layout from "../../layouts/Layout.astro";
+import PageLayout from "../../layouts/PageLayout.astro";
 import ArticleSnippet from "../../components/ArticleSnippet.astro";
 import Section from "../../components/common/Section.astro";
-import { articles } from "../../lib/list";
+import { posts } from "./data";
 ---
 
-<Layout>
+<PageLayout>
   <Fragment slot="head">
     <title>{GLOBAL.blogTitle} • {GLOBAL.alias}</title>
     <meta name="description" content={GLOBAL.blogLongDescription} />
@@ -28,12 +28,11 @@ import { articles } from "../../lib/list";
     </div>
     <ul>
       {
-        articles.map((project) => (
+        posts.map((project) => (
           <li>
             <ArticleSnippet
               title={project.title}
               description={project.description}
-              duration={`${project.time} min`}
               url={project.filename}
               timestamp={project.timestamp}
             />
@@ -42,4 +41,4 @@ import { articles } from "../../lib/list";
       }
     </ul>
   </Section>
-</Layout>
+</PageLayout>

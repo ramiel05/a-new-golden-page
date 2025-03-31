@@ -1,7 +1,7 @@
 ---
 import { featuredArticles, featuredProjects } from "../lib/featured";
 import { GLOBAL } from "../lib/variables";
-import Layout from "../layouts/Layout.astro";
+import PageLayout from "../layouts/PageLayout.astro";
 import Hero from "../components/home/Hero.astro";
 import Section from "../components/common/Section.astro";
 import FeaturedProjects from "../components/home/FeaturedProjects.astro";
@@ -9,7 +9,7 @@ import FeaturedArticles from "../components/home/FeaturedArticles.astro";
 ---
 
 <!-- TODO how use metadata? then adjust to me -->
-<Layout>
+<PageLayout>
   <Fragment slot="head">
     <title>{GLOBAL.alias} • {GLOBAL.shortDescription}</title>
     <meta name="description" content={GLOBAL.longDescription} />
@@ -31,15 +31,15 @@ import FeaturedArticles from "../components/home/FeaturedArticles.astro";
   <Section class="space-y-16">
     <h2 class="text-center text-xl sm:text-2xl font-display font-medium sm:text-left">Spotlight</h2>
     <div class="space-y-16">
-      <Section>
+      <!-- <Section>
         <FeaturedProjects featuredProjects={featuredProjects} />
       </Section>
       <Section>
         <FeaturedArticles featuredArticles={featuredArticles} />
-      </Section>
+      </Section> -->
     </div>
   </Section>
-</Layout>
+</PageLayout>
 
 <!-- TODO can have my "Latest feed also show when i have pushed to a repo, 
  or deployed. Probably do two feeds side by side as the pushed/deployed 

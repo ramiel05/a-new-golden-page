@@ -1,12 +1,12 @@
 ---
-import { getShortDescription, generateSourceUrl } from "../lib/utils";
-import type { ProjectFrontmatter } from "../lib/types";
 import type { MarkdownLayoutProps } from "astro";
-import Prose from "../components/Prose.astro";
-import Layout from "./Layout.astro";
-import Section from "../components/common/Section.astro";
-import Anchor from "../components/common/Anchor.astro";
-import { GLOBAL } from "../lib/variables";
+import Anchor from "../../components/common/Anchor.astro";
+import Section from "../../components/common/Section.astro";
+import Prose from "../../components/Prose.astro";
+import { getShortDescription, generateSourceUrl } from "../../lib/utils";
+import { GLOBAL } from "../../lib/variables";
+import type { ProjectFrontmatter } from "./data";
+import PageLayout from "../../layouts/PageLayout.astro";
 
 type Props = MarkdownLayoutProps<ProjectFrontmatter>;
 
@@ -15,7 +15,7 @@ const shortDescription = getShortDescription(frontmatter.description);
 const sourceUrl = generateSourceUrl(frontmatter.filename, "projects");
 ---
 
-<Layout>
+<PageLayout>
   <Fragment slot="head">
     <title>{frontmatter.title} • {GLOBAL.alias}</title>
     <meta name="description" content={frontmatter.description} />
@@ -66,4 +66,4 @@ const sourceUrl = generateSourceUrl(frontmatter.filename, "projects");
       <slot />
     </Prose>
   </Section>
-</Layout>
+</PageLayout>

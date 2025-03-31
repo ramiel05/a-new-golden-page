@@ -1,6 +1,6 @@
 # Personal Site
 
-A personal site using the Zaggonauth Astro Template as a starting point. See initial docs for this template below.
+A personal site using the Zaggonauth Astro Template as a starting point. See _initial_ docs for this template below.
 
 # Zaggonaut Astro Template
 

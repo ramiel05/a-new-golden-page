@@ -1,10 +1,25 @@
 import fs from "node:fs/promises";
 import { GLOBAL } from "./variables";
+import type { ContentType, Page } from "./pages";
 
 type MarkdownData<T extends object> = {
   frontmatter: T;
   file: string;
   url: string;
+};
+
+const processData = async <T extends object, K>(
+  file: string,
+  contentType: ContentType,
+  processFn: (data: MarkdownData<T>) => K,
+) => {
+  const files = import.meta.glob(`/src/pages/${contentType}/*.md`)[`/src/pages/${contentType}/${file}.md`]();
+  const data = (await files) as {
+    frontmatter: T;
+    file: string;
+    url: string;
+  };
+  return processFn(data);
 };
 
 /**
@@ -17,31 +32,15 @@ type MarkdownData<T extends object> = {
  * @param dir the directory to process the content from
  * @returns a promise that resolves to an array of processed content
  */
-export const processContentInDir = async <T extends object, K>(
-  contentType: "projects" | "blog",
+export const processContentForPage = async <T extends object, K>(
+  contentType: Page["contentType"],
   processFn: (data: MarkdownData<T>) => K,
   dir: string = process.cwd(),
 ) => {
   const files = await fs.readdir(dir + `/src/pages/${contentType}`);
   const markdownFiles = files.filter((file: string) => file.endsWith(".md")).map((file) => file.split(".")[0]);
   const readMdFileContent = async (file: string) => {
-    if (contentType === "projects") {
-      const content = import.meta.glob(`/src/pages/projects/*.md`)[`/src/pages/projects/${file}.md`]();
-      const data = (await content) as {
-        frontmatter: T;
-        file: string;
-        url: string;
-      };
-      return processFn(data);
-    } else {
-      const content = import.meta.glob(`/src/pages/blog/*.md`)[`/src/pages/blog/${file}.md`]();
-      const data = (await content) as {
-        frontmatter: T;
-        file: string;
-        url: string;
-      };
-      return processFn(data);
-    }
+    return contentType ? processData(file, contentType, processFn) : null;
   };
   return await Promise.all(markdownFiles.map(readMdFileContent));
 };
@@ -74,9 +73,9 @@ export const processArticleDate = (timestamp: string) => {
 /**
  * Generates a source URL for a content item. The URL is used in meta tags and social media cards.
  * @param sourceUrl the source URL of the content
- * @param contentType the type of content (either "projects" or "blog")
+ * @param contentType the type of content (either "projects" or "posts")
  * @returns a string representing the source URL with the appropriate domain
  */
-export const generateSourceUrl = (sourceUrl: string, contentType: "projects" | "blog") => {
+export const generateSourceUrl = (sourceUrl: string, contentType: "projects" | "posts") => {
   return `${GLOBAL.rootUrl}/${contentType}/${sourceUrl}`;
 };

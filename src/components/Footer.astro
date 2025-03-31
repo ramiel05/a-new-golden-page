@@ -2,10 +2,7 @@
 import { GLOBAL } from "../lib/variables";
 import Anchor from "./common/Anchor.astro";
 import Section from "./common/Section.astro";
-import { navLinks } from "../lib/nav";
-
-const date = new Date();
-const year = date.getFullYear();
+import { pages } from "../lib/pages";
 ---
 
 <footer class="mt-16 mb-8">
@@ -13,9 +10,9 @@ const year = date.getFullYear();
     <div class="zag-transition pb-4 flex flex-col sm:flex-row sm:flex-nowrap gap-8 sm:items-center">
       <ul class="flex flex-col gap-2">
         {
-          navLinks.map((navLink) => (
+          pages.map((page) => (
             <li>
-              <Anchor url={navLink.url}>{navLink.name}</Anchor>
+              <Anchor url={"/" + (page.contentType ?? "")}>{page.name}</Anchor>
             </li>
           ))
         }

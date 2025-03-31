@@ -1,8 +1,8 @@
 import type { ArticleFrontmatter, ProjectFrontmatter } from "./types";
-import { getShortDescription, processContentInDir } from "./utils";
+import { getShortDescription, processContentForPage } from "./utils";
 
 export const featuredProjects = (
-  await processContentInDir<ProjectFrontmatter, ProjectFrontmatter>("projects", (data) => {
+  await processContentForPage<ProjectFrontmatter, ProjectFrontmatter>("projects", (data) => {
     const shortDescription = getShortDescription(data.frontmatter.description);
     return {
       title: data.frontmatter.title,
@@ -24,7 +24,7 @@ export const featuredProjects = (
   });
 
 export const featuredArticles = (
-  await processContentInDir<ArticleFrontmatter, ArticleFrontmatter>("blog", (data) => {
+  await processContentForPage<ArticleFrontmatter, ArticleFrontmatter>("blog", (data) => {
     const shortDescription = getShortDescription(data.frontmatter.description);
     return {
       title: data.frontmatter.title,

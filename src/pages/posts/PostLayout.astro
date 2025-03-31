@@ -1,21 +1,21 @@
 ---
-import Section from "../components/common/Section.astro";
-import type { ArticleFrontmatter } from "../lib/types";
-import { getShortDescription, processArticleDate, generateSourceUrl } from "../lib/utils";
-import { GLOBAL } from "../lib/variables";
 import type { MarkdownLayoutProps } from "astro";
-import Prose from "../components/Prose.astro";
-import Layout from "./Layout.astro";
+import type { PostFrontmatter } from "./data";
+import Section from "../../components/common/Section.astro";
+import Prose from "../../components/Prose.astro";
+import { getShortDescription, processArticleDate, generateSourceUrl } from "../../lib/utils";
+import { GLOBAL } from "../../lib/variables";
+import PageLayout from "../../layouts/PageLayout.astro";
 
-type Props = MarkdownLayoutProps<ArticleFrontmatter>;
+type Props = MarkdownLayoutProps<PostFrontmatter>;
 
 const { frontmatter } = Astro.props;
 const shortDescription = getShortDescription(frontmatter.description);
 const articleDate = processArticleDate(frontmatter.timestamp);
-const sourceUrl = generateSourceUrl(frontmatter.filename, "blog");
+const sourceUrl = generateSourceUrl(frontmatter.filename, "posts");
 ---
 
-<Layout>
+<PageLayout>
   <Fragment slot="head">
     <title>{frontmatter.title} • {GLOBAL.alias}</title>
     <meta name="description" content={frontmatter.description} />
@@ -46,4 +46,4 @@ const sourceUrl = generateSourceUrl(frontmatter.filename, "blog");
     </Prose>
     <p class="pt-8">~{GLOBAL.alias}</p>
   </Section>
-</Layout>
+</PageLayout>
