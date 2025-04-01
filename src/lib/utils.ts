@@ -13,7 +13,14 @@ const processData = async <T extends object, K>(
   contentType: ContentType,
   processFn: (data: MarkdownData<T>) => K,
 ) => {
-  const files = import.meta.glob(`/src/pages/${contentType}/*.md`)[`/src/pages/${contentType}/${file}.md`]();
+  const globbies: Record<ContentType, Record<string, () => Promise<unknown>>> = {
+    bookmarks: import.meta.glob("/src/pages/bookmarks/*.md"),
+    music: import.meta.glob("/src/pages/music/*.md"),
+    posts: import.meta.glob("/src/pages/posts/*.md"),
+    projects: import.meta.glob("/src/pages/projects/*.md"),
+    webring: import.meta.glob("/src/pages/webring/*.md"),
+  };
+  const files = globbies[contentType][`/src/pages/${contentType}/${file}.md`]();
   const data = (await files) as {
     frontmatter: T;
     file: string;

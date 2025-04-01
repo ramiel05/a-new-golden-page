@@ -5,6 +5,7 @@ export type Page = {
   contentType?: ContentType;
 };
 
+/* Order matters. First to last is reflected in navbar item order. */
 export const pages: Page[] = [
   { name: "home" },
   { name: "fragments", contentType: "posts" },
