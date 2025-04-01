@@ -1,8 +1,8 @@
 ---
-import type { ProjectFrontmatter } from "../../lib/types";
 import { GLOBAL } from "../../lib/variables";
-import Featured from "../common/Featured.astro";
-import ProjectSnippet from "../ProjectSnippet.astro";
+import type { ProjectFrontmatter } from "../../pages/projects/data";
+import ProjectSnippet from "../../pages/projects/ProjectSnippet.astro";
+import Featured from "../Featured.astro";
 
 type Props = {
   featuredProjects: Array<ProjectFrontmatter>;

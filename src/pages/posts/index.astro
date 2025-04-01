@@ -1,9 +1,9 @@
 ---
 import { GLOBAL } from "../../lib/variables";
 import PageLayout from "../../layouts/PageLayout.astro";
-import ArticleSnippet from "../../components/ArticleSnippet.astro";
-import Section from "../../components/common/Section.astro";
 import { posts } from "./data";
+import Section from "../../components/Section.astro";
+import PostSnippet from "./PostSnippet.astro";
 ---
 
 <PageLayout>
@@ -30,7 +30,7 @@ import { posts } from "./data";
       {
         posts.map((project) => (
           <li>
-            <ArticleSnippet
+            <PostSnippet
               title={project.title}
               description={project.description}
               url={project.filename}

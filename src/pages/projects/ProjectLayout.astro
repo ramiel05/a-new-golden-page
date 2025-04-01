@@ -1,12 +1,12 @@
 ---
 import type { MarkdownLayoutProps } from "astro";
-import Anchor from "../../components/common/Anchor.astro";
-import Section from "../../components/common/Section.astro";
 import Prose from "../../components/Prose.astro";
 import { getShortDescription, generateSourceUrl } from "../../lib/utils";
 import { GLOBAL } from "../../lib/variables";
 import type { ProjectFrontmatter } from "./data";
 import PageLayout from "../../layouts/PageLayout.astro";
+import Anchor from "../../components/Anchor.astro";
+import Section from "../../components/Section.astro";
 
 type Props = MarkdownLayoutProps<ProjectFrontmatter>;
 

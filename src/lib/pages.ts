@@ -11,6 +11,6 @@ export const pages: Page[] = [
   { name: "fragments", contentType: "posts" },
   { name: "lab", contentType: "projects" },
   { name: "resonance", contentType: "music" },
-  { name: "i-like-these", contentType: "bookmarks" },
+  { name: "likes", contentType: "bookmarks" },
   { name: "webring", contentType: "webring" },
 ];

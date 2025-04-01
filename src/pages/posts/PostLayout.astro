@@ -1,11 +1,11 @@
 ---
 import type { MarkdownLayoutProps } from "astro";
 import type { PostFrontmatter } from "./data";
-import Section from "../../components/common/Section.astro";
 import Prose from "../../components/Prose.astro";
 import { getShortDescription, processArticleDate, generateSourceUrl } from "../../lib/utils";
 import { GLOBAL } from "../../lib/variables";
 import PageLayout from "../../layouts/PageLayout.astro";
+import Section from "../../components/Section.astro";
 
 type Props = MarkdownLayoutProps<PostFrontmatter>;
 
@@ -38,7 +38,6 @@ const sourceUrl = generateSourceUrl(frontmatter.filename, "posts");
       </h1>
       <div class="flex justify-between">
         <span>{articleDate}</span>
-        <span>{frontmatter.time} min</span>
       </div>
     </div>
     <Prose>
