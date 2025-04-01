@@ -12,8 +12,8 @@ export const GLOBAL = {
   githubProfile: "https://github.com/ramiel05",
 
   // Common text names used throughout the site
-  articlesName: "Articles",
-  projectsName: "Projects",
+  postsName: "fragments",
+  projectsName: "projects",
   viewAll: "View All",
 
   // Common descriptions used throughout the site
