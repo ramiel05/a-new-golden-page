@@ -3,9 +3,20 @@ import { GLOBAL } from "../lib/variables";
 import { pages } from "../lib/pages";
 import Anchor from "./Anchor.astro";
 import Section from "./Section.astro";
+
+const { class: className } = Astro.props;
+
+const quotes = [
+  {
+    text: "I say we take off and nuke the entire site from orbit. It's the only way to be sure.",
+    source: "Aliens",
+  },
+];
+const randomIndex = Math.floor(Math.random() * quotes.length);
+const randomQuote = quotes[randomIndex].text;
 ---
 
-<footer class="mt-16 mb-8">
+<footer class:list={[className]}>
   <Section class="mb-4 space-y-12">
     <div class="flex flex-start items-start gap-4 w-full">
       <svg
@@ -16,7 +27,7 @@ import Section from "./Section.astro";
         class="zag-fill zag-transition w-8 h-8 min-h-8 min-w-8 max-h-8 max-w-8 -translate-y-2"
         ><path fill="currentColor" d="m10 7l-2 4h3v6H5v-6l2-4zm8 0l-2 4h3v6h-6v-6l2-4z"></path></svg
       >
-      <p id="quote" class="zag-text zag-transition"></p>
+      <p id="quote" class="zag-text zag-transition">{randomQuote}</p>
     </div>
     <div class="flex-col items-center space-y-8">
       <ul class="flex justify-center gap-2">
@@ -45,16 +56,3 @@ import Section from "./Section.astro";
     </div>
   </Section>
 </footer>
-
-<script>
-  const quotes = [
-    {
-      quote: "I say we take off and nuke the entire site from orbit. It's the only way to be sure.",
-      source: "Aliens",
-    },
-  ];
-  const quoteElement = document.getElementById("quote");
-  const randomIndex = Math.floor(Math.random() * quotes.length);
-  const randomQuote = quotes[randomIndex];
-  quoteElement!.textContent = randomQuote.quote;
-</script>

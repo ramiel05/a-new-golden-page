@@ -21,11 +21,11 @@ import "../styles/global.css";
     />
     <slot name="head" />
   </head>
-  <body class="zag-bg zag-text zag-transition font-mono">
+  <body class="zag-bg zag-text zag-transition font-mono flex flex-col min-h-screen">
     <Header />
-    <main>
+    <main class="flex-grow">
       <slot />
     </main>
-    <Footer />
+    <Footer class="mt-48" />
   </body>
 </html>
