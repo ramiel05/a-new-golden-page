@@ -1,5 +1,6 @@
 ---
 import Anchor from "../../components/Anchor.astro";
+import Snippet from "../../components/Snippet.astro";
 import { processArticleDate } from "../../lib/utils";
 
 export type Props = {
@@ -12,18 +13,8 @@ export type Props = {
 const { title, description, url, timestamp } = Astro.props;
 ---
 
-<div
-  class="zag-text zag-transition flex flex-col gap-3 shadow-[10px_10px_0px_0px_rgba(0,0,0,0.75)] shadow-amber-200 p-6 border-4 border-amber-100"
->
-  <div class="flex flex-col gap-3 sm:flex-row sm:justify-between">
-    <Anchor url={url} class="text-xl">
-      {title}
-    </Anchor>
-    <div class="zag-muted zag-transition flex justify-between items-center">
-      {timestamp ? <p>{processArticleDate(timestamp)}</p> : null}
-    </div>
+<Snippet title={title} description={description} url={url}>
+  <div slot="bonus-corner" class="zag-muted zag-transition flex justify-between items-center">
+    {timestamp ? <p>{processArticleDate(timestamp)}</p> : null}
   </div>
-  <p class="zag-text zag-transition">
-    {description}
-  </p>
-</div>
+</Snippet>

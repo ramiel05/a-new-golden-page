@@ -1,5 +1,6 @@
 ---
 import Anchor from "../../components/Anchor.astro";
+import Snippet from "../../components/Snippet.astro";
 
 export type Props = {
   title: string;
@@ -13,34 +14,24 @@ export type Props = {
 const { title, description, url, githubUrl, liveUrl, tags } = Astro.props;
 ---
 
-<div
-  class="flex flex-col gap-3 shadow-[10px_10px_0px_0px_rgba(0,0,0,0.75)] shadow-amber-200 p-6 border-2 border-amber-100"
->
-  <div class="flex flex-col gap-3 sm:flex-row sm:justify-between">
-    <Anchor url={url} class="text-xl">
-      {title}
-    </Anchor>
-    <div class="flex gap-2">
-      {
-        githubUrl ? (
-          <Anchor url={githubUrl} class="text-base" external>
-            GitHub
-          </Anchor>
-        ) : null
-      }
-      {
-        liveUrl ? (
-          <Anchor url={liveUrl} class="text-base" external>
-            Live
-          </Anchor>
-        ) : null
-      }
-    </div>
+<Snippet title={title} description={description} url={url}>
+  <div slot="bonus-corner">
+    {
+      githubUrl ? (
+        <Anchor url={githubUrl} class="text-base" external>
+          GitHub
+        </Anchor>
+      ) : null
+    }
+    {
+      liveUrl ? (
+        <Anchor url={liveUrl} class="text-base" external>
+          Live
+        </Anchor>
+      ) : null
+    }
   </div>
-  <p class="zag-text zag-transition">
-    {description}
-  </p>
-  <div class="flex flex-row wrap gap-2">
+  <div slot="bonus-row" class="flex flex-row wrap gap-2">
     {tags.map((tag) => <span class="-zag-text -zag-bg zag-transition px-2 py-1 text-sm font-semibold">{tag}</span>)}
   </div>
-</div>
+</Snippet>
