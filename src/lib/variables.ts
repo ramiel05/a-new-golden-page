@@ -17,7 +17,7 @@ export const GLOBAL = {
   viewAll: "View All",
 
   // Common descriptions used throughout the site
-  noArticles: "No featured articles yet.",
+  noPosts: "No featured articles yet.",
   noProjects: "No featured projects yet.",
 
   // Blog metadata

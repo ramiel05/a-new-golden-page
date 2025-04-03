@@ -1,5 +1,10 @@
-import type { ArticleFrontmatter, ProjectFrontmatter } from "./types";
+import type { PostFrontmatter } from "../pages/posts/data";
+import type { ProjectFrontmatter } from "../pages/projects/data";
 import { getShortDescription, processContentForPage } from "./utils";
+
+const isFeaturedContent = (content: unknown): content is { featured: boolean } => {
+  return typeof content === "object" && content !== null && "featured" in content;
+};
 
 export const featuredProjects = (
   await processContentForPage<ProjectFrontmatter, ProjectFrontmatter>("projects", (data) => {
@@ -16,28 +21,27 @@ export const featuredProjects = (
     };
   })
 )
-  .filter((project) => project.featured)
+  .filter((project) => isFeaturedContent(project))
   .sort((a, b) => {
     const dateA = new Date(a.timestamp);
     const dateB = new Date(b.timestamp);
     return dateB.getTime() - dateA.getTime();
   });
 
-export const featuredArticles = (
-  await processContentForPage<ArticleFrontmatter, ArticleFrontmatter>("blog", (data) => {
+export const featuredPosts = (
+  await processContentForPage<PostFrontmatter, PostFrontmatter>("posts", (data) => {
     const shortDescription = getShortDescription(data.frontmatter.description);
     return {
       title: data.frontmatter.title,
       description: shortDescription,
       tags: data.frontmatter.tags,
-      time: data.frontmatter.time,
       featured: data.frontmatter.featured,
       timestamp: data.frontmatter.timestamp,
-      filename: `/blog/${data.frontmatter.filename}`,
+      filename: `/posts/${data.frontmatter.filename}`,
     };
   })
 )
-  .filter((project) => project.featured)
+  .filter((project) => isFeaturedContent(project))
   .sort((a, b) => {
     const dateA = new Date(a.timestamp);
     const dateB = new Date(b.timestamp);

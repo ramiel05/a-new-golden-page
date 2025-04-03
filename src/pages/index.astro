@@ -1,8 +1,11 @@
 ---
-import { GLOBAL } from "../lib/variables";
-import PageLayout from "../layouts/PageLayout.astro";
-import Hero from "../components/home/Hero.astro";
 import Section from "../components/Section.astro";
+import PageLayout from "../layouts/PageLayout.astro";
+import { featuredPosts, featuredProjects } from "../lib/featured";
+import { GLOBAL } from "../lib/variables";
+import FeaturedPosts from "./FeaturedPosts.astro";
+import FeaturedProjects from "./FeaturedProjects.astro";
+import Hero from "./Hero.astro";
 ---
 
 <!-- TODO how use metadata? then adjust to me -->
@@ -28,12 +31,12 @@ import Section from "../components/Section.astro";
   <Section class="space-y-16">
     <h2 class="text-center text-xl sm:text-2xl font-display font-medium sm:text-left">Spotlight</h2>
     <div class="space-y-16">
-      <!-- <Section>
-        <FeaturedProjects featuredProjects={featuredProjects} />
+      <Section>
+        <FeaturedPosts featuredPosts={featuredPosts} />
       </Section>
       <Section>
-        <FeaturedArticles featuredArticles={featuredArticles} />
-      </Section> -->
+        <FeaturedProjects featuredProjects={featuredProjects} />
+      </Section>
     </div>
   </Section>
 </PageLayout>
