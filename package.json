@@ -19,6 +19,7 @@
     "tailwindcss": "^4.0.8"
   },
   "devDependencies": {
+    "@flydotio/dockerfile": "^0.7.10",
     "@types/node": "^22.13.5",
     "prettier": "^3.5.3"
   }

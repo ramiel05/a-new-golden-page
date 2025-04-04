@@ -1,32 +1,28 @@
-import { getShortDescription, processContentForPage } from "../../lib/utils";
+import { getShortDescription, processContentForPage } from "../lib/utils";
 
-export type ProjectFrontmatter = {
+export type PostFrontmatter = {
   title: string;
   description: string;
   tags?: string[];
-  githubUrl?: string;
-  liveUrl?: string;
-  featured?: boolean;
+  featured: boolean;
   timestamp: string;
   filename: string;
 };
 
-export const projects = (
-  await processContentForPage<ProjectFrontmatter, ProjectFrontmatter>("projects", (data) => {
+export const posts = (
+  await processContentForPage<PostFrontmatter, PostFrontmatter>("posts", (data) => {
     const shortDescription = getShortDescription(data.frontmatter.description);
     return {
       title: data.frontmatter.title,
       description: shortDescription,
       tags: data.frontmatter.tags,
-      githubUrl: data.frontmatter.githubUrl,
-      liveUrl: data.frontmatter.liveUrl,
       featured: data.frontmatter.featured,
       timestamp: data.frontmatter.timestamp,
-      filename: `/projects/${data.frontmatter.filename}`,
+      filename: `/posts/${data.frontmatter.filename}`,
     };
   })
 )
-  .filter((project) => project !== null)
+  .filter((post) => post !== null)
   .sort((a, b) => {
     const dateA = new Date(a.timestamp);
     const dateB = new Date(b.timestamp);

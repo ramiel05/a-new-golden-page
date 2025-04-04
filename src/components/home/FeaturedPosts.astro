@@ -1,14 +1,14 @@
 ---
-import Featured from "../components/Featured.astro";
-import { GLOBAL } from "../lib/variables";
-import type { PostFrontmatter } from "./posts/data";
-import PostSnippet from "./posts/PostSnippet.astro";
+import type { PostFrontmatter } from "../../content/posts";
+import { GLOBAL } from "../../lib/variables";
+import Featured from "../Featured.astro";
+import PostSnippet from "../posts/PostSnippet.astro";
 
 type Props = {
   featuredPosts: Array<PostFrontmatter>;
 };
 
-const { featuredPosts: featuredPosts } = Astro.props;
+const { featuredPosts } = Astro.props;
 ---
 
 <Featured url="/fragments" pageName="fragments">

@@ -1,17 +1,17 @@
 ---
 import type { MarkdownLayoutProps } from "astro";
-import type { PostFrontmatter } from "./data";
-import Prose from "../../components/Prose.astro";
-import { getShortDescription, processArticleDate, generateSourceUrl } from "../../lib/utils";
-import { GLOBAL } from "../../lib/variables";
-import PageLayout from "../../layouts/PageLayout.astro";
-import Section from "../../components/Section.astro";
+import Prose from "../components/Prose.astro";
+import Section from "../components/Section.astro";
+import type { PostFrontmatter } from "../content/posts";
+import { getShortDescription, processPostDate, generateSourceUrl } from "../lib/utils";
+import { GLOBAL } from "../lib/variables";
+import PageLayout from "./PageLayout.astro";
 
 type Props = MarkdownLayoutProps<PostFrontmatter>;
 
 const { frontmatter } = Astro.props;
 const shortDescription = getShortDescription(frontmatter.description);
-const articleDate = processArticleDate(frontmatter.timestamp);
+const articleDate = processPostDate(frontmatter.timestamp);
 const sourceUrl = generateSourceUrl(frontmatter.filename, "posts");
 ---
 

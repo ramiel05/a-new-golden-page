@@ -1,7 +1,6 @@
 ---
-import Anchor from "../../components/Anchor.astro";
-import Snippet from "../../components/Snippet.astro";
-import { processArticleDate } from "../../lib/utils";
+import { processPostDate } from "../../lib/utils";
+import Snippet from "../Snippet.astro";
 
 export type Props = {
   title: string;
@@ -15,6 +14,6 @@ const { title, description, url, timestamp } = Astro.props;
 
 <Snippet title={title} description={description} url={url}>
   <div slot="bonus-corner" class="zag-muted zag-transition flex justify-between items-center">
-    {timestamp ? <p>{processArticleDate(timestamp)}</p> : null}
+    {timestamp ? <p>{processPostDate(timestamp)}</p> : null}
   </div>
 </Snippet>

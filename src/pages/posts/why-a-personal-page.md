@@ -1,5 +1,5 @@
 ---
-layout: ./PostLayout.astro
+layout: ../../layouts/PostLayout.astro
 title: Why make a personal page?
 description: Nostalgia for not being "a personal brand". Contributing with no expectation of anything in return.
 tags: ["nostalgia", "brandless", "anonymity"]

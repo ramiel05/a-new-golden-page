@@ -1,5 +1,5 @@
 // Set any item to undefined to remove it from the site or to use the default value
-
+// TODO these should mostly become i18n strings
 export const GLOBAL = {
   // Site metadata
   alias: "Ramiel",

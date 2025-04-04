@@ -1,6 +1,6 @@
-import type { PostFrontmatter } from "../pages/posts/data";
-import type { ProjectFrontmatter } from "../pages/projects/data";
-import { getShortDescription, processContentForPage } from "./utils";
+import { processContentForPage, getShortDescription } from "../lib/utils";
+import type { PostFrontmatter } from "./posts";
+import type { ProjectFrontmatter } from "./projects";
 
 const isFeaturedContent = (content: unknown): content is { featured: boolean } => {
   return typeof content === "object" && content !== null && "featured" in content;

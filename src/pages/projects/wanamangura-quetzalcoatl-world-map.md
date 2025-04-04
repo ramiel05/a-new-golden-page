@@ -1,5 +1,5 @@
 ---
-layout: ./ProjectLayout.astro
+layout: ../../layouts/ProjectLayout.astro
 title: Homebrew DnD world mapping
 description: Mapping for roleplaying games, a learning.
 tags: ["dnd", "maps"]
