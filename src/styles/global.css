@@ -32,14 +32,14 @@
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
   --font-display: "press-start-2p", ui-monospace, monospace;
   --font-serif: "Literata Variable", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --color-zag-dark: var(--color-sky-900);
-  --color-zag-light: var(--color-sky-100);
-  --color-zag-dark-muted: var(--color-sky-600);
-  --color-zag-light-muted: var(--color-sky-400);
-  --color-zag-accent-light: var(--color-emerald-400);
-  --color-zag-accent-light-muted: var(--color-emerald-300);
-  --color-zag-accent-dark: var(--color-emerald-600);
-  --color-zag-accent-dark-muted: var(--color-emerald-800);
+  --color-zag-dark: var(--color-blue-950);
+  --color-zag-light: var(--color-blue-100);
+  --color-zag-dark-muted: var(--color-blue-600);
+  --color-zag-light-muted: var(--color-blue-400);
+  --color-zag-accent-light: var(--color-red-400);
+  --color-zag-accent-light-muted: var(--color-red-300);
+  --color-zag-accent-dark: var(--color-red-600);
+  --color-zag-accent-dark-muted: var(--color-red-800);
 }
 
 @layer base {
@@ -118,8 +118,19 @@
     }
   }
 
+  .zag-pop {
+    box-shadow: 10px 10px 0px 0px var(--color-zag-accent-light);
+    :where(.dark, .dark *) & {
+      box-shadow: 10px 10px 0px 0px var(--color-zag-accent-dark);
+    }
+    @apply border-4 border-red-100;
+  }
+
   .zag-offset {
     text-underline-offset: var(--zag-offset);
+  }
+
+  .zag-shadow {
   }
 
   .opsz {
