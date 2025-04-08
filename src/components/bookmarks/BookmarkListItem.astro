@@ -12,7 +12,7 @@ const { bookmark } = Astro.props;
 
 <div class="zag-pop">
   <li class="zag-text zag-transition flex flex-col gap-3 p-6">
-    <Anchor url={bookmark.data.url} class="text-xl">
+    <Anchor url={bookmark.data.url} class="text-xl" external>
       {bookmark.data.name}
     </Anchor>
     <p class="zag-text zag-transition">{bookmark.data.description}</p>

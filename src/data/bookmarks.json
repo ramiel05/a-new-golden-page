@@ -5,7 +5,7 @@
     "url": "https://garry.net/",
     "name": "Garry Newman",
     "description": "Blog from creator of Garry's mod, Rust (the game), and others",
-    "tags": ["gamedev", "life", "blog"]
+    "tags": ["game-dev", "life", "blog"]
   },
   {
     "id": 2,
@@ -22,5 +22,13 @@
     "name": "Sergio Xalambrí",
     "description": "Remix tips, guides and deep dives",
     "tags": ["remix", "react-router", "guide"]
+  },
+  {
+    "id": 4,
+    "type": "site",
+    "url": "https://www.timestamp-converter.com/",
+    "name": "Timestamp Converter",
+    "description": "What I use to get the current timestamp in ISO 8601 format for this site",
+    "tags": ["tool", "web-dev"]
   }
 ]
