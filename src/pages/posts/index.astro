@@ -4,6 +4,7 @@ import PageLayout from "../../layouts/PageLayout.astro";
 import Section from "../../components/Section.astro";
 import PostSnippet from "../../components/posts/PostSnippet.astro";
 import { posts } from "../../content/posts";
+import List from "../../components/List.astro";
 ---
 
 <PageLayout>
@@ -26,7 +27,7 @@ import { posts } from "../../content/posts";
     <div class="flex items-center gap-4 pt-8 pb-16">
       <h1 class="font-display text-3xl sm:text-4xl leading-loose">{GLOBAL.postsName}</h1>
     </div>
-    <ul>
+    <List>
       {
         posts.map((project) => (
           <li>
@@ -39,6 +40,6 @@ import { posts } from "../../content/posts";
           </li>
         ))
       }
-    </ul>
+    </List>
   </Section>
 </PageLayout>

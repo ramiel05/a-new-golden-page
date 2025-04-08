@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "type": "site",
+    "url": "https://garry.net/",
+    "name": "Garry Newman",
+    "description": "Blog from creator of Garry's mod, Rust (the game), and others",
+    "tags": ["gamedev", "life", "blog"]
+  },
+  {
+    "id": 2,
+    "type": "site",
+    "url": "https://overreacted.io/",
+    "name": "Overreacted",
+    "description": "Dan Abramov's blog",
+    "tags": ["react", "blog"]
+  },
+  {
+    "id": 3,
+    "type": "site",
+    "url": "https://sergiodxa.com/",
+    "name": "Sergio Xalambrí",
+    "description": "Remix tips, guides and deep dives",
+    "tags": ["remix", "react-router", "guide"]
+  }
+]

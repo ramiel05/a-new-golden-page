@@ -1,7 +1,7 @@
 ---
-import Anchor from '../Anchor.astro';
-import Snippet from '../Snippet.astro';
-
+import Anchor from "../Anchor.astro";
+import Snippet from "../Snippet.astro";
+import Tag from "../Tag.astro";
 
 export type Props = {
   title: string;
@@ -33,6 +33,6 @@ const { title, description, url, githubUrl, liveUrl, tags } = Astro.props;
     }
   </div>
   <div slot="bonus-row" class="flex flex-row wrap gap-2">
-    {tags.map((tag) => <span class="-zag-text -zag-bg zag-transition px-2 py-1 text-sm font-semibold">{tag}</span>)}
+    {tags.map((tag) => <Tag>{tag}</Tag>)}
   </div>
 </Snippet>

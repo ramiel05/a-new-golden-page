@@ -1,6 +1,10 @@
 ---
+import { getCollection } from "astro:content";
 import Section from "../../components/Section.astro";
 import PageLayout from "../../layouts/PageLayout.astro";
+import BookmarkListItem from "../../components/bookmarks/BookmarkListItem.astro";
+import List from "../../components/List.astro";
+const allBookmarks = await getCollection("bookmarks");
 ---
 
 <PageLayout>
@@ -23,38 +27,8 @@ import PageLayout from "../../layouts/PageLayout.astro";
     <div class="flex items-center gap-4 pt-8 pb-16">
       <h1 class="font-display text-3xl sm:text-4xl leading-loose">i like these</h1>
     </div>
-    <p>UNDER CONSTRUCTION</p>
-    <!-- <ul>
-      {
-        likes.posts.map((like) => (
-          <li>
-            <ProjectSnippet
-              title={project.title}
-              description={project.description}
-              url={project.filename}
-              githubUrl={project.githubUrl}
-              liveUrl={project.liveUrl}
-              tags={project.tags ?? []}
-            />
-          </li>
-        ))
-      }
-    </ul>
-    <ul>
-      {
-        likes.sites.map((project) => (
-          <li>
-            <ProjectSnippet
-              title={project.title}
-              description={project.description}
-              url={project.filename}
-              githubUrl={project.githubUrl}
-              liveUrl={project.liveUrl}
-              tags={project.tags ?? []}
-            />
-          </li>
-        ))
-      }
-    </ul> -->
+    <List>
+      {allBookmarks.map((bookmark) => <BookmarkListItem bookmark={bookmark} />)}
+    </List>
   </Section>
 </PageLayout>

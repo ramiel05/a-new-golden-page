@@ -1,0 +1,21 @@
+---
+import type { DataEntryMap } from "astro:content";
+import Anchor from "../Anchor.astro";
+import Tag from "../Tag.astro";
+
+export type Props = {
+  bookmark: DataEntryMap["bookmarks"][number];
+};
+
+const { bookmark } = Astro.props;
+---
+
+<div class="zag-pop">
+  <li class="zag-text zag-transition flex flex-col gap-3 p-6">
+    <Anchor url={bookmark.data.url} class="text-xl">
+      {bookmark.data.name}
+    </Anchor>
+    <p class="zag-text zag-transition">{bookmark.data.description}</p>
+    <div class="flex flex-row wrap gap-2">{bookmark.data.tags.map((tag) => <Tag>{tag}</Tag>)}</div>
+  </li>
+</div>
