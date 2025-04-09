@@ -13,16 +13,15 @@ const { featuredPosts } = Astro.props;
 
 <Featured url="/fragments" pageName="fragments">
   {
-    (featuredPosts.length === 0 && <p>{GLOBAL.noPosts}</p>) ||
-      featuredPosts.map((article) => (
-        <li>
-          <PostSnippet
-            title={article.title}
-            description={article.description}
-            url={article.filename}
-            timestamp={article.timestamp}
-          />
-        </li>
-      ))
+    featuredPosts.map((article) => (
+      <li>
+        <PostSnippet
+          title={article.title}
+          description={article.description}
+          url={article.filename}
+          timestamp={article.timestamp}
+        />
+      </li>
+    ))
   }
 </Featured>

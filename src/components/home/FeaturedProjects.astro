@@ -13,18 +13,17 @@ const { featuredProjects } = Astro.props;
 
 <Featured url="/lab" pageName="lab">
   {
-    (featuredProjects.length === 0 && <p>{GLOBAL.noProjects}</p>) ||
-      featuredProjects.map((project) => (
-        <li>
-          <ProjectSnippet
-            title={project.title}
-            description={project.description}
-            url={project.filename}
-            githubUrl={project.githubUrl}
-            liveUrl={project.liveUrl}
-            tags={project.tags ?? []}
-          />
-        </li>
-      ))
+    featuredProjects.map((project) => (
+      <li>
+        <ProjectSnippet
+          title={project.title}
+          description={project.description}
+          url={project.filename}
+          githubUrl={project.githubUrl}
+          liveUrl={project.liveUrl}
+          tags={project.tags ?? []}
+        />
+      </li>
+    ))
   }
 </Featured>

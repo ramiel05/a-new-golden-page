@@ -8,23 +8,8 @@ import PageLayout from "../layouts/PageLayout.astro";
 import { GLOBAL } from "../lib/variables";
 ---
 
-<!-- TODO how use metadata? then adjust to me -->
+<!-- TODO how use metadata? then adjust to me. see initial commit for the templates example to build/learn off of -->
 <PageLayout>
-  <Fragment slot="head">
-    <title>{GLOBAL.alias} • {GLOBAL.shortDescription}</title>
-    <meta name="description" content={GLOBAL.longDescription} />
-    <meta property="og:title" content={`${GLOBAL.alias} • ${GLOBAL.shortDescription}`} />
-    <meta property="og:description" content={GLOBAL.longDescription} />
-    <meta property="og:image" content={`${GLOBAL.rootUrl}/zaggonaut.png`} />
-    <meta property="og:url" content={GLOBAL.rootUrl} />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={`${GLOBAL.alias} • ${GLOBAL.shortDescription}`} />
-    <meta name="twitter:description" content={GLOBAL.longDescription} />
-    <meta name="twitter:image" content={`${GLOBAL.rootUrl}/zaggonaut.png`} />
-    <meta http-equiv="content-language" content="en" />
-    <meta name="language" content="English" />
-    <link rel="canonical" href={GLOBAL.rootUrl} />
-  </Fragment>
   <Section class="my-16">
     <Hero />
   </Section>

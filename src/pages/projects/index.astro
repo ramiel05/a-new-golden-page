@@ -4,28 +4,15 @@ import ProjectSnippet from "../../components/projects/ProjectSnippet.astro";
 import Section from "../../components/Section.astro";
 import { projects } from "../../content/projects";
 import PageLayout from "../../layouts/PageLayout.astro";
-import { GLOBAL } from "../../lib/variables";
+import { pages } from "../../lib/pages";
 ---
 
 <PageLayout>
-  <Fragment slot="head">
-    <title>{GLOBAL.projectTitle} • {GLOBAL.alias}</title>
-    <meta name="description" content={GLOBAL.projectLongDescription} />
-    <meta property="og:title" content={`${GLOBAL.projectTitle} • ${GLOBAL.alias}`} />
-    <meta property="og:description" content={GLOBAL.projectShortDescription} />
-    <meta property="og:image" content={`${GLOBAL.rootUrl}/${GLOBAL.avatar}`} />
-    <meta property="og:url" content={`${GLOBAL.rootUrl}/projects`} />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={`${GLOBAL.projectTitle} • ${GLOBAL.alias}`} />
-    <meta name="twitter:description" content={GLOBAL.projectShortDescription} />
-    <meta name="twitter:image" content={`${GLOBAL.rootUrl}/${GLOBAL.avatar}`} />
-    <meta http-equiv="content-language" content="en" />
-    <meta name="language" content="English" />
-    <link rel="canonical" href={`${GLOBAL.rootUrl}/projects`} />
-  </Fragment>
   <Section class="py-4 my-8">
     <div class="flex items-center gap-4 pt-8 pb-16">
-      <h1 class="font-display text-3xl sm:text-4xl leading-loose">{GLOBAL.projectsName}</h1>
+      <h1 class="font-display text-3xl sm:text-4xl leading-loose">
+        {pages.find((page) => page.contentType === "posts")!.name}
+      </h1>
     </div>
     <List>
       {

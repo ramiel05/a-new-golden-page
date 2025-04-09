@@ -16,21 +16,6 @@ const sourceUrl = generateSourceUrl(frontmatter.filename, "posts");
 ---
 
 <PageLayout>
-  <Fragment slot="head">
-    <title>{frontmatter.title} • {GLOBAL.alias}</title>
-    <meta name="description" content={frontmatter.description} />
-    <meta property="og:title" content={`${frontmatter.title} • ${GLOBAL.alias}`} />
-    <meta property="og:description" content={shortDescription} />
-    <meta property="og:image" content={`${GLOBAL.rootUrl}/${GLOBAL.avatar}`} />
-    <meta property="og:url" content={frontmatter.url} />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={`${frontmatter.title} • ${GLOBAL.alias}`} />
-    <meta name="twitter:description" content={shortDescription} />
-    <meta name="twitter:image" content={`${GLOBAL.rootUrl}/${GLOBAL.avatar}`} />
-    <meta http-equiv="content-language" content="en" />
-    <meta name="language" content="English" />
-    <link rel="canonical" href={sourceUrl} />
-  </Fragment>
   <Section class="pt-8">
     <div class="flex flex-col gap-4 mt-8 mb-16">
       <h1 class="text-3xl sm:text-4xl leading-normal sm:leading-normal font-display">

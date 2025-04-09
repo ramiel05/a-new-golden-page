@@ -5,21 +5,6 @@ import Section from "../../components/Section.astro";
 ---
 
 <PageLayout>
-  <Fragment slot="head">
-    <title>{GLOBAL.blogTitle} • {GLOBAL.alias}</title>
-    <meta name="description" content={GLOBAL.blogLongDescription} />
-    <meta property="og:title" content={`${GLOBAL.blogTitle} • ${GLOBAL.alias}`} />
-    <meta property="og:description" content={GLOBAL.blogShortDescription} />
-    <meta property="og:image" content={`${GLOBAL.rootUrl}/${GLOBAL.avatar}`} />
-    <meta property="og:url" content={`${GLOBAL.rootUrl}/blog`} />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={`${GLOBAL.blogTitle} • ${GLOBAL.alias}`} />
-    <meta name="twitter:description" content={GLOBAL.blogShortDescription} />
-    <meta name="twitter:image" content={`${GLOBAL.rootUrl}/${GLOBAL.avatar}`} />
-    <meta http-equiv="content-language" content="en" />
-    <meta name="language" content="English" />
-    <link rel="canonical" href={`${GLOBAL.rootUrl}/blog`} />
-  </Fragment>
   <Section class="my-8">
     <div class="flex items-center gap-4 pt-8 pb-16">
       <h1 class="font-display text-3xl sm:text-4xl leading-loose">resonance</h1>
