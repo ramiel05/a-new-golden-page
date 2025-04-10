@@ -4,13 +4,18 @@ import Section from "../../components/Section.astro";
 import PageLayout from "../../layouts/PageLayout.astro";
 import BookmarkListItem from "../../components/bookmarks/BookmarkListItem.astro";
 import List from "../../components/List.astro";
+import { TagFilter } from "../../components/TagFilter.jsx";
 const allBookmarks = await getCollection("bookmarks");
 ---
 
 <PageLayout>
   <Section class="py-4 my-8">
-    <div class="flex items-center gap-4 pt-8 pb-16">
-      <h1 class="font-display text-3xl sm:text-4xl leading-loose">i like these</h1>
+    <!-- <TagFilter /> -->
+    <div class="pt-8 pb-16">
+      <h1 class="font-display text-3xl sm:text-4xl leading-loose">stars</h1>
+      <h2 class="text-center text-xl sm:text-2xl font-mono font-medium sm:text-left">
+        <p>i like these places</p>
+      </h2>
     </div>
     <List>
       {allBookmarks.map((bookmark) => <BookmarkListItem bookmark={bookmark} />)}

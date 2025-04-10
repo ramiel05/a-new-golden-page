@@ -6,7 +6,7 @@ export const GLOBAL = {
   alias: "Ramiel",
   avatar: "ramiel.webp",
   rootUrl: "https://a-new-golden-page.fly.dev/",
-  shortDescription: "Ramiel's Personal Site",
+  shortDescription: "Curation over proliferation",
   longDescription: "A site born of nostalgia for the Small Web. Here you will find Ramiel's thoughts and projects.",
 
   // Other site links
