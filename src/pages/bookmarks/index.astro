@@ -4,19 +4,28 @@ import Section from "../../components/Section.astro";
 import PageLayout from "../../layouts/PageLayout.astro";
 import BookmarkListItem from "../../components/bookmarks/BookmarkListItem.astro";
 import List from "../../components/List.astro";
-import { TagFilter } from "../../components/TagFilter.jsx";
+import TagFilter from "../../components/TagFilter.tsx";
+import ReactIsland from "../../components/ReactIsland.astro";
+
+const selectedTags = ["blog", "react"]; // LEFTOFF get the actually selected tags
+
 const allBookmarks = await getCollection("bookmarks");
+// const filteredBookmarks = await getCollection("bookmarks", ({ data }) => {
+//   return Array.from(new Set(data.tags).intersection(new Set(selectedTags))).length > 0;
+// });
 ---
 
 <PageLayout>
-  <Section class="py-4 my-8">
-    <!-- <TagFilter /> -->
+  <Section class="py-4 my-8 space-y-8">
     <div class="pt-8 pb-16">
       <h1 class="font-display text-3xl sm:text-4xl leading-loose">stars</h1>
       <h2 class="text-center text-xl sm:text-2xl font-mono font-medium sm:text-left">
         <p>i like these places</p>
       </h2>
     </div>
+    <ReactIsland>
+      <TagFilter client:idle />
+    </ReactIsland>
     <List>
       {allBookmarks.map((bookmark) => <BookmarkListItem bookmark={bookmark} />)}
     </List>

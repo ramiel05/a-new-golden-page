@@ -1,0 +1,9 @@
+---
+
+---
+
+<!-- this is literally just so that tailwind classes that work by applying 
+ classes to children work as expected. without this things such as margins
+ from space-y-[number] will apply css to the <astro-island> web component which
+ creates unintended styling behavior -->
+<div><slot /></div>
