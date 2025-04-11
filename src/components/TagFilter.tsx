@@ -14,8 +14,13 @@ const tags: Tag[] = [
   { id: 5, name: "life" },
 ];
 
-export default function TagFilter() {
-  const [selectedTags, setSelectedTags] = useState<Tag[]>([]);
+interface TagFilterProps {
+  selectedTags: Tag[];
+  setSelectedTags: Dispatch<React.SetStateAction<Tag[]>>;
+}
+
+export default function TagFilter({ selectedTags, setSelectedTags }: TagFilterProps) {
+  // const [selectedTags, setSelectedTags] = useState<Tag[]>([]);
   const [query, setQuery] = useState("");
   const unselectedTags = Array.from(new Set(tags).difference(new Set(selectedTags)));
 

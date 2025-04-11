@@ -2,17 +2,12 @@
 import { getCollection } from "astro:content";
 import Section from "../../components/Section.astro";
 import PageLayout from "../../layouts/PageLayout.astro";
-import BookmarkListItem from "../../components/bookmarks/BookmarkListItem.astro";
-import List from "../../components/List.astro";
-import TagFilter from "../../components/TagFilter.tsx";
-import ReactIsland from "../../components/ReactIsland.astro";
+import ReactIslandContainer from "../../components/ReactIslandContainer.astro";
+import DynamicBookmarksIsland from "../../components/bookmarks/DynamicBookmarksIsland";
 
-const selectedTags = ["blog", "react"]; // LEFTOFF get the actually selected tags
+// TODO create a server island with allBookmarks as a fallback
 
 const allBookmarks = await getCollection("bookmarks");
-// const filteredBookmarks = await getCollection("bookmarks", ({ data }) => {
-//   return Array.from(new Set(data.tags).intersection(new Set(selectedTags))).length > 0;
-// });
 ---
 
 <PageLayout>
@@ -23,11 +18,8 @@ const allBookmarks = await getCollection("bookmarks");
         <p>i like these places</p>
       </h2>
     </div>
-    <ReactIsland>
-      <TagFilter client:idle />
-    </ReactIsland>
-    <List>
-      {allBookmarks.map((bookmark) => <BookmarkListItem bookmark={bookmark} />)}
-    </List>
+    <ReactIslandContainer>
+      <DynamicBookmarksIsland allBookmarks={allBookmarks} client:idle />
+    </ReactIslandContainer>
   </Section>
 </PageLayout>
