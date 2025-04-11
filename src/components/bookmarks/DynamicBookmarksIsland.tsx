@@ -9,5 +9,11 @@ type DynamicBookmarksIslandProps = {
 
 export default function DynamicBookmarksIsland({ allBookmarks }: DynamicBookmarksIslandProps) {
   // TODO now that this is entirely in a react component, i can change back to using renderProps, which i feel is more ergonomic and communicates intent better
-  return <DynamicList items={allBookmarks} field={"data.tags"} ItemComponent={BookmarkListItem} />;
+  return (
+    <DynamicList
+      items={allBookmarks}
+      field={"data.tags"}
+      renderItem={(item, key) => <BookmarkListItem item={item} key={key} />}
+    />
+  );
 }

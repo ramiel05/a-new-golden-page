@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { get } from "radash";
 import TagFilter from "./TagFilter.tsx";
 
@@ -17,7 +17,7 @@ interface DynamicListProps<T extends Record<string, any>> {
   e.g. of original attempt with a render prop:
   renderItem: (item: T) => ReactNode;
   */
-  ItemComponent: React.ComponentType<{ item: T }>;
+  renderItem: (item: T, key: number | string) => ReactNode;
 }
 
 interface Tag {
@@ -26,11 +26,7 @@ interface Tag {
 }
 
 // FIXME: some of the naming and implementation here is specific to tags even though should be dynamic to filter on any field.
-export default function DynamicList<T extends Record<string, any>>({
-  items,
-  field,
-  ItemComponent,
-}: DynamicListProps<T>) {
+export default function DynamicList<T extends Record<string, any>>({ items, field, renderItem }: DynamicListProps<T>) {
   const [selectedTags, setSelectedTags] = useState<Tag[]>([]);
   const filteredItems = items.filter((item) => {
     return selectedTags.length === 0
@@ -43,11 +39,8 @@ export default function DynamicList<T extends Record<string, any>>({
   return (
     <div className="space-y-8">
       <TagFilter selectedTags={selectedTags} setSelectedTags={setSelectedTags} />
-      <ul className="space-y-10">
-        {filteredItems.map((filteredItem, i) => (
-          <ItemComponent key={i} item={filteredItem} />
-        ))}
-      </ul>
+      {/* TODO don't use index as key */}
+      <ul className="space-y-10">{filteredItems.map((filteredItem, i) => renderItem(filteredItem, i))}</ul>
     </div>
   );
 }
