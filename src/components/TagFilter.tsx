@@ -45,7 +45,7 @@ export default function TagFilter({ selectedTags, setSelectedTags }: TagFilterPr
           {filteredTags.map((tag) => (
             <ComboboxOption key={tag.id} value={tag}>
               {({ focus }) => (
-                <li className={`${focus ? "bg-blue-500 text-white" : "bg-white text-black"}`}>{tag.name}</li>
+                <li className={`${focus ? "-zag-text -zag-bg" : "zag-text zag-bg"} list-none p-1.5`}>{tag.name}</li>
               )}
             </ComboboxOption>
           ))}
