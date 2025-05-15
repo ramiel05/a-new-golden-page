@@ -2,6 +2,10 @@
 
 A personal site using the Zaggonauth Astro Template as a starting point. See _initial_ docs for this template below.
 
+## Troubleshooting
+
+Can't find "astro:content" after just cloned and ran pnpm install? Run `pnpm astro sync`.
+
 # Zaggonaut Astro Template
 
 Zaggonaut is a retro-inspired theme for Astro, built using TypeScript, TailwindCSS, and of course, Astro.

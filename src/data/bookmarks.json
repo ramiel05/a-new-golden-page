@@ -30,5 +30,13 @@
     "name": "Timestamp Converter",
     "description": "What I use to get the current timestamp in ISO 8601 format for this site",
     "tags": ["tool", "web-dev"]
+  },
+  {
+    "id": 5,
+    "type": "page",
+    "url": "https://overreacted.io/rsc-for-astro-developers/",
+    "name": "RSC for Astro Developers",
+    "description": "Mental model for the new React RSCs by comparing to Astro",
+    "tags": ["react", "web-dev", "ssr", "astro"]
   }
 ]

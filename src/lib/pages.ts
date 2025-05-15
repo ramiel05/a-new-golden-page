@@ -8,8 +8,8 @@ export type Page = {
 /* Order matters. First to last is reflected in navbar item order. */
 export const pages: Page[] = [
   { name: "home" },
-  { name: "fragments", contentType: "posts" },
-  { name: "lab", contentType: "projects" },
+  { name: "log", contentType: "posts" },
+  { name: "builds", contentType: "projects" },
   { name: "resonance", contentType: "music" },
   { name: "stars", contentType: "bookmarks" },
   { name: "webring", contentType: "webring" },
